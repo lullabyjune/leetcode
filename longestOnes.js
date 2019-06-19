@@ -6,7 +6,7 @@
 var longestOnes = function(A, K) {
     //  记录0的index去计算
     //  其实两种的时间性能差不太多- -，记录的话内存占用会多一点。
-    //  时间大概都是120 - 140ms，内存38 - 42m
+    //  时间大概都是120 - 140ms（击败70% - 90%），内存38 - 42m(击败100% - 40%)
         
     //     let zeroIndexArr = [-1],
     //         length = A.length,
