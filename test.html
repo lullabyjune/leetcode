@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+
+  <style>
+  html, body {margin: 0;}
+.color1 {color: #E60012;}
+.color2 {color: #EB6100;}
+.color3 {color: #F39800;}
+.color4 {color: #FCC800;}
+.color5 {color: #FFF100;}
+.color6 {color: #CFDB00;}
+.color7 {color: #8FC31F;}
+.color8 {color: #22AC38;}
+.color9 {color: #009944;}
+.color10 {color: #009B6B;}
+.color11 {color: #009E96;}
+.color12 {color: #00A0C1;}
+.color13 {color: #00A0E9;}
+.color14 {color: #0086D1;}
+.color15 {color: #0068B7;}
+.color16 {color: #00479D;}
+.color17 {color: #1D2088;}
+.color18 {color: #601986;}
+.color19 {color: #920783;}
+.color20 {color: #BE0081;}
+.color21 {color: #E4007F;}
+.color22 {color: #E5006A;}
+.color23 {color: #E5004F;}
+.color24 {color: #E60033;}
+.word {font-size: 20px;}
+.content {text-align: center;font-size:0;}
+.blink {
+    font-size: 20px;
+    animation: fade 500ms infinite;
+    -webkit-animation: fade 500ms infinite;
+}
+@keyframes fade {
+    from {opacity: 1.0;}
+    50% {opacity: 0;}
+    to {opacity: 1.0;}
+}
+  </style>
+</head>
+<body>
+  <div class="content">
+      <span class="word color23">h</span>
+      <span class="word color22">e</span>
+      <span class="word color4">l</span>
+      <span class="word color24">l</span>
+      <span class="word color17">o</span>
+      <span class="word color2"> </span>
+      <span class="word color9">w</span>
+      <span class="word color3">o</span>
+      <span class="word color1">r</span>
+      <span class="word color23">l</span>
+      <span class="word color15">d</span>
+      <br>
+      <span class="word color15">你</span>
+      <span class="word color13">好</span>
+      <span class="word color16">世</span>
+      <span class="word color19">界</span>
+    <span class="blink" id="jsBlink">|</span>
+  </div>
+
+  <script>
+    
+    function output(str) {
+      var container = document.getElementsByClassName('content')[0];
+      var blink = container.getElementsByClassName('blink')[0];
+      var count = 0;
+      var n = str.indexOf('\n');
+      container.innerHTML = '';
+      container.appendChild(blink)
+      str.replace(/</g, '&lg;');
+      str.replace(/>/g, '&rg;');
+      str.replace(/\s/g, '&nbsp;');
+
+      var span = document.createElement('span');
+      span.innerHTML = str[count];
+      span.className = 'word ' + getColor();
+      // container.appendChild(span)
+      container.insertBefore(span, blink)
+      count++;
+      
+      var timer = setInterval(function () {
+        console.log(str[count], str, )
+
+        if (count !== n) {
+          var span = document.createElement('span');
+        
+          span.innerHTML = str[count];
+          span.className = 'word ' + getColor();
+          container.insertBefore(span, blink)
+          count++;
+        } else {
+          console.log('11')
+            var br = document.createElement('br');
+            container.insertBefore
+            container.insertBefore(br, blink)
+            count += 2;
+            n = str.indexOf('\n', n + 1)
+        }
+
+        if (str[count] === undefined) {
+          clearInterval(timer);
+        }
+      }, 200)
+    }
+
+    output('hello \n world')
+
+    function getColor () {
+      var n = Math.floor(Math.random() * 24)
+      return 'color' + n;
+  }
+
+  </script>
+</body>
+</html>
+
+
+
