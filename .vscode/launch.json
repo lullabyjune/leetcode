@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/wordSubsets.js"
+            "program": "${workspaceFolder}/splitIntoFibonacci-842.js"
         }
     ]
 }
